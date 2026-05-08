@@ -148,9 +148,9 @@ npm install
 Create a `.env` file inside the `server` folder and add:
 
 ```env
+MONGO_URI=mongodb+srv://taskuser:Task%40123@cluster0.r8yxpyx.mongodb.net/taskdb?retryWrites=true&w=majority
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
+JWT_SECRET=secret123
 CLIENT_URL=http://localhost:5173
 ```
 
@@ -189,7 +189,7 @@ npm install
 Create a `.env` file inside the `client` folder and add:
 
 ```env
-VITE_API_BASE_URL=http://localhost:4000/api
+VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
 ### 9. Start Frontend
