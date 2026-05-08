@@ -9,12 +9,32 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+// Middleware
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://melodious-mochi-c7d1da.netlify.app",
+    ],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
+// Root route for Render browser test
+app.get("/", (req, res) => {
+  res.send("Task Manager API is running");
+});
+
+// API routes
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/tasks", require("./routes/taskRoutes"));
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+// Dynamic port for Render
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
