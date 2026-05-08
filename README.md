@@ -364,45 +364,11 @@ Each task is connected to a specific user, so users can only see and manage thei
 
 ---
 
-##  Deployment
 
-### Frontend Deployment
 
-Frontend can be deployed on:
 
-- Vercel
-- Netlify
 
-### Backend Deployment
-
-Backend can be deployed on:
-
-- Render
-- Railway
-- Cyclic
-
-### Environment Variables for Deployment
-
-Make sure to add the correct environment variables on deployment platforms.
-
-Frontend:
-
-```env
-VITE_API_BASE_URL=https://your-backend-url.com/api
-```
-
-Backend:
-
-```env
-PORT=4000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-CLIENT_URL=https://your-frontend-url.com
-```
-
----
-
-## 🔒 Protected Routes
+##  Protected Routes
 
 Dashboard is protected.  
 Only logged-in users can access the dashboard.
@@ -411,7 +377,7 @@ If the user is not logged in, they will be redirected to the login page.
 
 ---
 
-## 📌 Evaluation Points Covered
+##  Evaluation Points Covered
 
 ### Frontend
 
@@ -442,7 +408,7 @@ If the user is not logged in, they will be redirected to the login page.
 
 ---
 
-## ▶️ How to Run the Project
+##  How to Run the Project
 
 Run backend:
 
@@ -462,15 +428,4 @@ npm run dev
 
 ---
 
-##  Author
 
-**Anjali Tomar**
-
----
-
-##  Submission
-
-- GitHub Repository: `Add your GitHub repository link here`
-- Live Frontend URL: `Add your frontend live link here`
-- Live Backend URL: `Add your backend live link here`
-- Demo Video: `Optional`
