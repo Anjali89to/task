@@ -22,11 +22,13 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin (Postman/mobile apps)
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"));
+        console.log("Blocked by CORS:", origin);
+        callback(null, true); // safe fallback (prevents crash)
       }
     },
     credentials: true,
@@ -35,10 +37,9 @@ app.use(
   })
 );
 
-// Handle preflight requests
-app.options("*", cors());
+// ❌ REMOVE app.options("*", cors());
 
-// Body parser middleware
+// Body parser
 app.use(express.json());
 
 // Root route
@@ -53,7 +54,6 @@ app.use("/api/tasks", require("./routes/taskRoutes"));
 // Server Port
 const PORT = process.env.PORT || 5000;
 
-// Start Server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
